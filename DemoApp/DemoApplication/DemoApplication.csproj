@@ -21,6 +21,9 @@
     <None Remove="Areas\Client\Views\Checkout\" />
     <None Remove="Areas\Client\Views\Card\" />
     <None Remove="Contracts\Order\" />
+    <None Remove="Areas\Admin\ViewModels\Order\" />
+    <None Remove="Areas\Admin\Views\Order\" />
+    <Content Remove="Areas\Admin\Views\Order\UpdateViewModel.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1122,6 +1125,8 @@
     <Folder Include="Areas\Client\Views\Checkout\" />
     <Folder Include="Areas\Client\Views\Card\" />
     <Folder Include="Contracts\Order\" />
+    <Folder Include="Areas\Admin\ViewModels\Order\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
   </ItemGroup>
 
 </Project>
