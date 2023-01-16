@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoApplication.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230116124755_Order")]
+    [Migration("20230116155405_Order")]
     partial class Order
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -271,7 +271,7 @@ namespace DemoApplication.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("DemoApplication.Database.Models.OrderedProduct", b =>
@@ -304,7 +304,7 @@ namespace DemoApplication.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("OrderedProducts");
+                    b.ToTable("OrderedProduct", (string)null);
                 });
 
             modelBuilder.Entity("DemoApplication.Database.Models.Role", b =>
@@ -506,7 +506,7 @@ namespace DemoApplication.Migrations
             modelBuilder.Entity("DemoApplication.Database.Models.Order", b =>
                 {
                     b.HasOne("DemoApplication.Database.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -517,7 +517,7 @@ namespace DemoApplication.Migrations
             modelBuilder.Entity("DemoApplication.Database.Models.OrderedProduct", b =>
                 {
                     b.HasOne("DemoApplication.Database.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("OrderedProducts")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -570,6 +570,8 @@ namespace DemoApplication.Migrations
                     b.Navigation("BookCategories");
 
                     b.Navigation("BookImages");
+
+                    b.Navigation("OrderedProducts");
                 });
 
             modelBuilder.Entity("DemoApplication.Database.Models.Category", b =>
@@ -592,6 +594,8 @@ namespace DemoApplication.Migrations
             modelBuilder.Entity("DemoApplication.Database.Models.User", b =>
                 {
                     b.Navigation("Basket");
+
+                    b.Navigation("Orders");
 
                     b.Navigation("UserActivation");
                 });

@@ -20,5 +20,6 @@ namespace DemoApplication.Database.Models
         public UserActivation? UserActivation { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
+        public List<Order> Orders { get; set; }
     }
 }

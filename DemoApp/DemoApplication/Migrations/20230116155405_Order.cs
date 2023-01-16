@@ -36,7 +36,7 @@ namespace DemoApplication.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderedProducts",
+                name: "OrderedProduct",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -49,15 +49,15 @@ namespace DemoApplication.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderedProducts", x => x.Id);
+                    table.PrimaryKey("PK_OrderedProduct", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderedProducts_Books_BookId",
+                        name: "FK_OrderedProduct_Books_BookId",
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderedProducts_Orders_OrderId",
+                        name: "FK_OrderedProduct_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
@@ -65,13 +65,13 @@ namespace DemoApplication.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderedProducts_BookId",
-                table: "OrderedProducts",
+                name: "IX_OrderedProduct_BookId",
+                table: "OrderedProduct",
                 column: "BookId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderedProducts_OrderId",
-                table: "OrderedProducts",
+                name: "IX_OrderedProduct_OrderId",
+                table: "OrderedProduct",
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
@@ -83,7 +83,7 @@ namespace DemoApplication.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OrderedProducts");
+                name: "OrderedProduct");
 
             migrationBuilder.DropTable(
                 name: "Orders");
